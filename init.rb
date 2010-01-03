@@ -5,7 +5,7 @@ require "integrity"
 
 # Uncomment as appropriate for the notifier you want to use
 # = Email
-# require "integrity/notifier/email"
+require "integrity/notifier/email"
 # = IRC
 # require "integrity/notifier/irc"
 # = Campfire
@@ -17,7 +17,7 @@ Integrity.configure do |c|
   c.database  = "sqlite3:integrity.db"
   c.directory = "builds"
   c.log       = "integrity.log"
-  c.build_all = true
+  c.build_all = false
   c.push    :github, "AssyMcIntegritee"
   c.builder :threaded, 5
 end
