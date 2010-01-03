@@ -12,7 +12,6 @@ do_postgres -v 0.10.0
 haml -v 2.2.2
 thor -v 0.9.9
 addressable -v 2.1.0
-rack -v 1.0.0
 json -v 1.1.9
 sinatra-authorization -v 1.0.0
 sinatra -v 0.9.4

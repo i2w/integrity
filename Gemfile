@@ -14,7 +14,7 @@ gem "rake"
 gem "haml", "2.2.2"
 gem "thor", "0.9.9"
 gem "addressable", "2.1.0"
-gem "rack", "1.0.0"
+gem "rack", "1.0.1"
 gem "json", "1.1.9"
 gem "sinatra", "0.9.4"
 gem "sinatra-authorization", "1.0.0"
@@ -24,7 +24,7 @@ gem "bobette", "0.0.6"
 
 # These are dependencies for the various notifiers. Uncomment as appropriate.
 # = Email
-# gem "sinatra-ditties"
+gem "sinatra-ditties"
 # = IRC
 # gem "shout-bot"
 # = Campfire
