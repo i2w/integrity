@@ -31,15 +31,14 @@ gem "sinatra-ditties"
 # gem "tinder"
 
 # = Dependencies for the :dj builder
-# gem "activerecord"
-# gem "delayed_job", :git => "git://github.com/tobi/delayed_job.git"
+gem "activerecord"
+gem "delayed_job", "1.8.4"
 
 # = Development dependencies.
 only :test do
   source "http://gems.github.com"
   gem "sqlite3-ruby"
   gem "activerecord"
-  gem "delayed_job", :git => "git://github.com/tobi/delayed_job.git"
   gem "rr"
   gem "mocha"
   gem "redgreen"

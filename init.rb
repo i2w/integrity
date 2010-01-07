@@ -19,5 +19,5 @@ Integrity.configure do |c|
   c.log       = "integrity.log"
   c.build_all = false
   c.push    :github, "AssyMcIntegritee"
-  c.builder :threaded, 5
+  c.builder :dj, :adapter => "sqlite3", :database => "dj.db"
 end
