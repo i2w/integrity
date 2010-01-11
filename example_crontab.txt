@@ -1,2 +1,2 @@
-1 10 * * * cd /Users/ian/dev/ci/integrity; ruby build_public_projects.rb > /dev/null 2>&1
-4 10 * * * cd /Users/ian/dev/ci/integrity; ruby clean_builds.rb > /dev/null 2>&1
+10 1 * * * cd /Users/ian/dev/ci/integrity; ruby build_public_projects.rb > /dev/null 2>&1
+10 4 * * * cd /Users/ian/dev/ci/integrity; ruby clean_builds.rb > /dev/null 2>&1
