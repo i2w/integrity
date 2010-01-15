@@ -39,3 +39,16 @@ namespace :jobs do
     Delayed::Worker.new.start
   end
 end
+
+task :build_public_projects do
+  require "init"
+
+  Integrity::Project.all(:public => true).each do |p|
+    Integrity.log "Building #{p.name} [via build_public_projects.rb script]"
+    p.build("HEAD")
+  end
+end
+
+task :clean_builds do
+  rm_rf "builds/*"
+end

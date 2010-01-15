@@ -1,4 +1,5 @@
 source "http://gemcutter.org"
+gem "whenever"
 gem "dm-core", "0.10.1"
 gem "dm-timestamps", "0.10.1"
 gem "dm-types", "0.10.1"
