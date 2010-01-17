@@ -1,4 +1,4 @@
-set :path, File.expand_path(File.dirname(__FILE__) + '/..')
+set :path, File.expand_path(File.dirname(__FILE__))
 
 every 1.day, :at => "1:30am" do
   rake :clean_builds

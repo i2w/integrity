@@ -40,6 +40,7 @@ namespace :jobs do
   end
 end
 
+desc "Build all public projects"
 task :build_public_projects do
   require "init"
 
@@ -49,6 +50,12 @@ task :build_public_projects do
   end
 end
 
+desc "Remove the current builds"
 task :clean_builds do
   rm_rf "builds/*"
+end
+
+desc "Update the crontab with the schedule"
+task :schedule do
+  sh "vendor/gems/gems/whenever-0.4.1/bin/whenever -f schedule.rb --update-crontab integrity"
 end
