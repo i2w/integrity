@@ -72,3 +72,13 @@ file "doc/integrity.html" => ["doc/htmlize",
 end
 
 CLOBBER.include("doc/integrity.html")
+
+desc "Remove the current builds"
+task :clean_builds do
+  `rm -rf builds/*`
+end
+
+desc "Update the crontab with the schedule"
+task :schedule do
+  sh "whenever -f schedule.rb --update-crontab integrity"
+end

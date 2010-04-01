@@ -18,6 +18,7 @@ gem "addressable", "2.1.1"
 gem "json", "1.1.9"
 gem "sinatra", "1.0.0"
 gem "sinatra-authorization", "1.0.0"
+gem "whenever", "0.4.1"
 
 # These are dependencies for the various notifiers. Uncomment as appropriate.
 # = Email
