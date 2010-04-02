@@ -82,3 +82,13 @@ desc "Update the crontab with the schedule"
 task :schedule do
   sh "whenever -f schedule.rb --update-crontab integrity"
 end
+
+desc "Build all public projects"
+task :build_public_projects do
+  require "init"
+
+  Integrity::Project.all(:public => true).each do |p|
+    Integrity.log "Building #{p.name}"
+    p.build("HEAD")
+  end
+end

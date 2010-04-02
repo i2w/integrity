@@ -22,7 +22,7 @@ gem "whenever", "0.4.1"
 
 # These are dependencies for the various notifiers. Uncomment as appropriate.
 # = Email
-# gem "sinatra-ditties"
+gem "sinatra-ditties"
 # = IRC
 # gem "shout-bot"
 # = Campfire
