@@ -47,7 +47,7 @@ module Integrity
     end
 
     def run
-      cmd = "(cd #{repo.directory} && RUBYOPT=#{pre_bundler_rubyopt} PATH=#{pre_bundler_path} && #{@build.project.command} 2>&1)"
+      cmd = "(cd #{repo.directory} && RUBYOPT=#{pre_bundler_rubyopt} PATH=#{pre_bundler_path} GEM_PATH=#{pre_bundler_gem_path} BUNDLE_GEMFILE= #{@build.project.command} 2>&1)"
       Integrity.log cmd
       IO.popen(cmd, "r") { |io| @output = io.read }
       @status = $?.success?
@@ -65,11 +65,15 @@ module Integrity
 
   private
     def pre_bundler_path
-      ENV['PATH'] && ENV["PATH"].split(":").reject { |path| path.include?("vendor") }.join(":")
+      ENV['PATH'] && ENV["PATH"].split(":").reject { |path| path.include?(".bundle") }.join(":")
     end
 
     def pre_bundler_rubyopt
-      ENV['RUBYOPT'] && ENV["RUBYOPT"].split.reject { |opt| opt.include?("vendor") }.join(" ")
+      ENV['RUBYOPT'] && ENV["RUBYOPT"].split.reject { |opt| opt.include?(".bundle") }.join(" ")
+    end
+    
+    def pre_bundler_gem_path
+      ENV['GEM_PATH'] && ENV["GEM_PATH"].split(":").reject { |opt| opt.include?(".bundle") }.join(":")
     end
   end
 end
