@@ -12,6 +12,7 @@ module Integrity
       run "git fetch origin"
       run "git checkout origin/#{@branch}"
       run "git reset --hard #{@commit}"
+      run "git submodule update -i"
     end
 
     def metadata
