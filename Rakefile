@@ -73,22 +73,24 @@ end
 
 CLOBBER.include("doc/integrity.html")
 
-desc "Remove the current builds"
+desc "Remove the current builds from the filesystem, and all but the last 7 days of builds"
 task :clean_builds do
   `rm -rf builds/*`
+  require 'init'
+  Integrity::Build.all(:updated_at.lt => Time.now - (7 * 24 * 60 * 60)).each {|r| r.destroy!}
+end
+
+desc "Build all public projects"
+task :build_public_projects do
+  require 'init'
+  Integrity::Project.all(:public => true).each do |p|
+    `curl -d "" -u #{Integrity.app.user}:#{Integrity.app.pass} #{Integrity.base_url}/#{p.name}/builds`
+    puts "waiting for integrity to catch its breath..."
+    sleep 60
+  end
 end
 
 desc "Update the crontab with the schedule"
 task :schedule do
   sh "whenever -f schedule.rb --update-crontab integrity"
-end
-
-desc "Build all public projects"
-task :build_public_projects do
-  require "init"
-
-  Integrity::Project.all(:public => true).each do |p|
-    Integrity.log "Building #{p.name}"
-    p.build("HEAD")
-  end
 end

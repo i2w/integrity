@@ -12,10 +12,12 @@ require "integrity/notifier/email"
 # require "integrity/notifier/campfire"
 
 Integrity.configure do |c|
-  c.database     "sqlite3:integrity.db"
-  c.directory    "builds"
-  c.base_url     "http://integrity-i2w.no-ip.org"
-  c.log          "integrity.log"
-  c.push         "AssyMcIntegritee"
-  c.builder      :threaded, 5
+  c.user          "assy"
+  c.pass          "mcgee"
+  c.database      "sqlite3:integrity.db"
+  c.directory     "builds"
+  c.base_url      "http://integrity-i2w.no-ip.org"
+  c.log           "integrity.log"
+  c.push          "AssyMcIntegritee"
+  c.builder       :threaded, 5
 end
