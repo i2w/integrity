@@ -84,9 +84,7 @@ desc "Build all public projects"
 task :build_public_projects do
   require 'init'
   Integrity::Project.all(:public => true).each do |p|
-    `curl -d "" -u #{Integrity.app.user}:#{Integrity.app.pass} #{Integrity.base_url}/#{p.name}/builds`
-    puts "waiting for integrity to catch its breath..."
-    sleep 60
+    p.build('HEAD')
   end
 end
 

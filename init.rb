@@ -18,6 +18,6 @@ Integrity.configure do |c|
   c.directory     "builds"
   c.base_url      "http://integrity-i2w.no-ip.org"
   c.log           "integrity.log"
-  c.push          "AssyMcIntegritee"
-  c.builder       :threaded, 5
+  c.github        "AssyMcIntegritee"
+  c.builder       :dj, :adapter => "sqlite3", :database => "dj.db"
 end
