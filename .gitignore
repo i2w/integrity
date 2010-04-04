@@ -1,3 +1,4 @@
+creds.yml
 log/*.log
 config/thin.yml
 config/deploy.rb

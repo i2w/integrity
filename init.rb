@@ -11,9 +11,11 @@ require "integrity/notifier/email"
 # = Campfire
 # require "integrity/notifier/campfire"
 
+creds = YAML.load_file("creds.yml")
+
 Integrity.configure do |c|
-  c.user          "assy"
-  c.pass          "mcgee"
+  c.user          creds['user']
+  c.pass          creds['pass']
   c.database      "sqlite3:integrity.db"
   c.directory     "builds"
   c.base_url      "http://integrity-i2w.no-ip.org"
