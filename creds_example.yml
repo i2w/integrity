@@ -1,3 +1,4 @@
 # copy to creds.yml
 user: username
 pass: password
+github: github_token
